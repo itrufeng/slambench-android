@@ -13,6 +13,7 @@ install:
     - make ndk
     - make prop
     - make 
+    - make apk
 
 script:
     - ls
