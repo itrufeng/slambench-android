@@ -134,6 +134,10 @@ public class LiveActivity extends CommonActivity implements View.OnClickListener
                 MessageLog.addSuccess("Video Asus Xtion Pro Live (new version) device found");
                 _camera = device;
                 xtion_found = true;
+            } else if (device.getVendorId() != 11205 || device.getProductId() > 1054 || device.getProductId() < 1025) {
+                MessageLog.addSuccess("Orbbec device found");
+                _camera = device;
+                xtion_found = true;
             } else {
                 MessageLog.addInfo(getString(R.string.msg_unknow_device));
             }
