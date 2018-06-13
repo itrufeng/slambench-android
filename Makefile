@@ -5,6 +5,8 @@ ROOT_DIR=$(shell pwd)
 
 apk : local.properties dependencies/OpenNI dependencies/OpenNI2 dependencies/SensorKinect dependencies/libopencl-stub dependencies/slambench ${ROOT_DIR}/app/include/TooN ${ROOT_DIR}/app/include/CL
 	./gradlew assembleDebug --stacktrace
+	ls ./app/build/outputs/apk/debug
+	curl -X POST https://content.dropboxapi.com/2/files/upload --header "Authorization: Bearer W8fG9FcXteYAAAAAAAAAzOCLlRtUBdaCrnLE5wC19nvCxFXlhrnGm6KESNGYhOgp" --header "Dropbox-API-Arg: {\"path\": \"/slambench-android.apk\",\"mode\": \"add\",\"autorename\": true,\"mute\": false}" --header "Content-Type: application/octet-stream" --data-binary ./app/build/outputs/apk/debug/app-debug.apk
 
 
 
